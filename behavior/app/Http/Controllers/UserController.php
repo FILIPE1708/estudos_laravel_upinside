@@ -72,25 +72,39 @@ class UserController extends Controller
 //            echo "<br>";
 //        }
 
-        $users = DB::table('users')
-            ->select('users.id', 'users.name', 'users.status', 'addresses.address')
-//            ->leftJoin('addresses', 'users.id', '=', 'addresses.user')
-            ->join('addresses', function ($join){
-                $join->on('users.id', '=', 'addresses.user')
-                     ->where('addresses.status', '=', '1');
-            })
-            ->orderBy('users.id', 'ASC')
-            ->get();
+//        $users = DB::table('users')
+//            ->select('users.id', 'users.name', 'users.status', 'addresses.address')
+////            ->leftJoin('addresses', 'users.id', '=', 'addresses.user')
+//            ->join('addresses', function ($join){
+//                $join->on('users.id', '=', 'addresses.user')
+//                     ->where('addresses.status', '=', '1');
+//            })
+//            ->orderBy('users.id', 'ASC')
+//            ->get();
+//
+//        echo "Todos os registros: {$users->count()}";
+//        echo "<br>";
+//
+//        foreach ($users as $user){
+//            echo "#{$user->id} Nome: {$user->name}";
+//            echo "Status: {$user->status}";
+//            echo "Endereço: {$user->address}";
+//            echo "<br>";
+//        }
 
-        echo "Todos os registros: {$users->count()}";
-        echo "<br>";
+//        DB::table('users')->insert(array(
+//            'name' => 'Filipe Cavalcante',
+//            'email' => 'Fca@laravel.com',
+//            'password' => bcrypt('1234'),
+//            'status' => 1
+//        ));
 
-        foreach ($users as $user){
-            echo "#{$user->id} Nome: {$user->name}";
-            echo "Status: {$user->status}";
-            echo "Endereço: {$user->address}";
-            echo "<br>";
-        }
+//        DB::table('users')->where('id', '1001')->update(array(
+//            'email' => 'Teste@laravel.com'
+//        ));
 
+//        DB::table('users')->where('id', '1001')->delete();
+
+        
     }
 }
