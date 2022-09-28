@@ -105,6 +105,14 @@ class UserController extends Controller
 
 //        DB::table('users')->where('id', '1001')->delete();
 
-        
+       $users = DB::table('users')->paginate(50);
+
+        foreach ($users as $user){
+            echo "#{$user->id} Nome: {$user->name}";
+            echo "Status: {$user->status}";
+            echo "<br>";
+        }
+
+        echo $users->links();
     }
 }
