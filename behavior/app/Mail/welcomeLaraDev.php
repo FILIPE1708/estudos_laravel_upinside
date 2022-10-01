@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class welcomeLaraDev extends Mailable
+class welcomeLaraDev extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
     private $user;

@@ -74,3 +74,14 @@ Route::get('/email', function (){
 //    return new \App\Mail\welcomeLaraDev($user);
     Mail::send(new \App\Mail\welcomeLaraDev($user));
 });
+
+Route::get('/email-queue', function (){
+    $user = new stdClass();
+    $user->name = 'Filipe Cavalcante';
+    $user->email = 'teste@teste.com';
+
+//    return new \App\Mail\welcomeLaraDev($user);
+//    Mail::send(new \App\Mail\welcomeLaraDev($user));
+
+    \App\Jobs\welcomeLaraDev::dispatch($user)->delay(now()->addSeconds(15));
+});
