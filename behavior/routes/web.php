@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,4 +63,14 @@ Route::get('/session', function (){
     session()->reflash();
 
    var_dump(session()->all());
+});
+
+
+Route::get('/email', function (){
+    $user = new stdClass();
+    $user->name = 'Filipe Cavalcante';
+    $user->email = 'teste@teste.com';
+
+//    return new \App\Mail\welcomeLaraDev($user);
+    Mail::send(new \App\Mail\welcomeLaraDev($user));
 });
