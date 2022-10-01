@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,4 +85,42 @@ Route::get('/email-queue', function (){
 //    Mail::send(new \App\Mail\welcomeLaraDev($user));
 
     \App\Jobs\welcomeLaraDev::dispatch($user)->delay(now()->addSeconds(15));
+});
+
+Route::get('/files', function (){
+    $files = Storage::files();
+    $allFiles = Storage::allFiles();
+
+//    Storage::makeDirectory('public/students');
+
+    $directories = Storage::directories();
+    $allDirectories = Storage::allDirectories();
+
+//    Storage::makeDirectory('public/course');
+
+//    Storage::deleteDirectory('public/course');
+
+//    Storage::disk('public')->put('teste.txt', 'Criando um arquivo no diretório público');
+//    Storage::put('teste-local.txt', 'Criando um arquivo no diretório local');
+
+//    echo Storage::get('teste-local.txt');
+//
+//    var_dump($files, $allFiles, $directories, $allDirectories);
+//    return Storage::download('teste-local.txt');
+
+//    if (Storage::exists('teste-local.txt')){
+//        echo 'O arquivo existe';
+//    }else{
+//        echo 'o arquivo não existe';
+//    }
+
+//    echo Storage::size('teste-local.txt');
+//    echo Storage::lastModified('teste-local.txt');
+
+//    Storage::prepend('teste-local.txt', 'Curso upinside');
+//    Storage::append('teste-local.txt', 'Adicionando conteúdo ao arquivo');
+
+//    Storage::copy('teste-local.txt', 'public/teste-local.txt');
+//    Storage::move('teste-local.txt', 'public/teste-local.txt');
+    Storage::delete('public/teste-local.txt');
 });
