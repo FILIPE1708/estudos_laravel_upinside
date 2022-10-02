@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
 {
+    public function middle()
+    {
+        echo 'Teste de middleware';
+    }
+
     /**
      * Display a listing of the resource.
      *

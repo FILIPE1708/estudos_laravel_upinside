@@ -127,3 +127,5 @@ Route::get('/files', function (){
 });
 
 Route::resource('/imoveis', PropertyController::class);
+
+Route::get('/teste-middleware', [PropertyController::class, 'middle'])->middleware('testemiddleware:Filipe');
