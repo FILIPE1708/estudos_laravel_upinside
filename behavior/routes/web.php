@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -124,3 +125,5 @@ Route::get('/files', function (){
 //    Storage::move('teste-local.txt', 'public/teste-local.txt');
     Storage::delete('public/teste-local.txt');
 });
+
+Route::resource('/imoveis', PropertyController::class);
